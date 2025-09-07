@@ -35,6 +35,6 @@ class Main {
                 System.out.println("Invalid day number");
                 return;
         }
-        System.out.println("The corresponding day is " + day);
+        System.out.println("The corresponding day is  " + day);
     }
 }
