@@ -21,7 +21,7 @@ class Main {
                 System.out.println("The real and equal root is " + root1);
             } else {
                 double root2 = (-b - det) / 2 * a;
-                System.out.println("The real and distinct roots are " + root1 + " and " + root2);
+                System.out.println("The real and distinct roots are " + root1 + "  and " + root2);
             }
         }
     }
