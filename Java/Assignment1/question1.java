@@ -2,9 +2,10 @@
 
 class Main {
     public static void main(String[] args) {
-        System.out.println("Name: Swapnaraj Mohanty");
+        System.out.println("Name: Narayani Kundu");
         System.out.println("Branch: CSE");
-        System.out.println("Roll No: 11");
+         System.out.println("Sic: 24BCSA61");
+        System.out.println("Roll No: 14");
         System.out.println("College: Silicon University");
     }
 }
