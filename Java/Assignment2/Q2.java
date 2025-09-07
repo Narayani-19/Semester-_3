@@ -37,6 +37,6 @@ class Main {
         } else {
             grade = "F";
         }
-        System.out.println("Your grade is " + grade);
+        System.out.println("Your grade is  " + grade);
     }
 }
