@@ -23,6 +23,6 @@ class Main {
         } else {
             taxRate = 0;
         }
-        System.out.println("Your calculated tax on the income is " + taxRate);
+        System.out.println("Your calculated tax on the income is  " + taxRate);
     }
 }
