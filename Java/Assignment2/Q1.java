@@ -15,9 +15,9 @@ class Main {
         double taxRate;
 
         if (income > 500000) {
-            taxRate = income * 0.3;
+            taxRate = 30000.0 + 50000.0 + (income * 0.3);
         } else if (income > 300000) {
-            taxRate = income * 0.2;
+            taxRate =  30000.0 + (income * 0.2);
         } else if (income > 150000) {
             taxRate = income * 0.1;
         } else {
