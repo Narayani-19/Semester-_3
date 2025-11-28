@@ -1,51 +1,63 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.*;
 
-public class Assignment4 extends Frame implements ActionListener {
+public class Assignment4 extends Frame {
 
-    TextField t1, t2;
-    Button b;
+    private TextField textField1,resultField;
+    private Button factorialButton;
 
-    Assignment4() {
-        setSize(400,300);
-        setLayout(null);
-
-        Label l1 = new Label("Enter Text:");
-        l1.setBounds(50,50,80,30);
-
-        t1 = new TextField();
-        t1.setBounds(150,50,120,30);
-
-        b = new Button("Copy");
-        b.setBounds(150,100,80,30);
-
-        Label l2 = new Label("Copied Text:");
-        l2.setBounds(50,150,80,30);
-
-        t2 = new TextField();
-        t2.setBounds(150,150,120,30);
-        t2.setEditable(false);
-
-        add(l1); add(t1);
-        add(b);
-        add(l2); add(t2);
-
-        b.addActionListener(this);
-
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
+    public Assignment4() { //constructor
+        // Set up the frame
+        setTitle("Calculate Factorial");
+        setSize(300, 250);
+         this.addWindowListener(new WindowAdapter() {
+            // Anonymous class to override windowClosing event
+            public void windowClosing(WindowEvent e)
+            {
+                // Call dispose method
                 System.exit(0);
             }
         });
+        setLayout(null);
 
-        setVisible(true);
+        // Create text fields and button
+        textField1 = new TextField();
+        resultField = new TextField();
+        resultField.setEditable(false); // Result field should not be editable
+        factorialButton = new Button("Factorial");
+
+        // Set bounds for the components
+        textField1.setBounds(30, 50, 130, 30);
+        resultField.setBounds(30, 150, 130, 30);
+        factorialButton.setBounds(30, 200, 130, 30);
+
+        // Add components to the frame
+        add(textField1);
+        add(resultField);
+        add(factorialButton);
+
+        // Add action listener to the button
+        factorialButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    int n = Integer.parseInt(textField1.getText());
+        long fact=1;
+ for(int i=1;i<=n;i++)
+  fact*=i;
+                    resultField.setText(Long.toString(fact));
+                } catch (NumberFormatException ex) {
+                    resultField.setText("Invalid Input");
+                }
+            }
+        });
     }
 
-    public void actionPerformed(ActionEvent e) {
-        t2.setText(t1.getText());
-    }
-
-    public static void main(String args[]) {
-        new Assignment4();
+    public static void main(String[] args) {
+        Assignment4 frame = new Assignment4();
+        frame.setVisible(true);
     }
 }
+
+
