@@ -1,15 +1,15 @@
-class MinimumBalanceException extends Exception {
-    MinimumBalanceException(String msg) {
+class MinimumBalanceException2 extends Exception {
+    MinimumBalanceException2(String msg) {
         super(msg);
     }
 }
 
-class Account {
+class Account2 {
     String name;
     int acc_no;
     double balance;
 
-    Account(String n, int a, double b) {
+    Account2(String n, int a, double b) {
         name = n;
         acc_no = a;
         balance = b;
@@ -17,26 +17,32 @@ class Account {
 
     void deposit(double amt) {
         balance += amt;
-        System.out.println("Deposited: " + amt);
     }
 
-    void withdraw(double amt) throws MinimumBalanceException {
+    void withdraw(double amt) throws MinimumBalanceException2 {
         if (balance - amt < 500) {
-            throw new MinimumBalanceException("Balance below minimum limit.");
+            throw new MinimumBalanceException2("Balance too low.");
         }
         balance -= amt;
-        System.out.println("Withdrawn: " + amt);
+    }
+
+    void transfer(Account2 to, double amt) throws MinimumBalanceException2 {
+        withdraw(amt);
+        to.deposit(amt);
+        System.out.println("Transferred: " + amt);
     }
 }
 
-class Q5 {
+class Q6 {
     public static void main(String[] args) {
-        Account a = new Account("Rahul", 101, 1000);
+        Account2 a1 = new Account2("Amit", 1, 2000);
+        Account2 a2 = new Account2("Sumit", 2, 1000);
 
         try {
-            a.withdraw(600);
-        } catch (MinimumBalanceException e) {
+            a1.transfer(a2, 1800);
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 }
+
